@@ -1,27 +1,23 @@
 # Webjasper
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.1.
+Projeto de Gerador de relatorios Web baseados na lib jasper.
 
 ## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Rode `ng serve` 
 
 ## Build
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Execute `ng build` pra realizar o build do projeto. Os arquivos do projeto estarão na pasta `dist/`.
 
-## Running unit tests
+## Rodando testes dsdsd
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+Sem testes no momento
 
-## Running end-to-end tests
+## Rodando testes de integraçao
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+Ainda estou pensando em como fazer
 
-## Further help
+## Ajuda
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+Mande email para gilmariosoftware@gmail.com ou me encontre no discord gilmario-batista#1484

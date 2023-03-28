@@ -1,0 +1,56 @@
+<div class="text-center fs-6">
+  WEB JASPER
+</div>
+<main class="w-100 d-grid align-content-center text-center h-75 p-3">
+  <form ngForm="form">
+    <div class="row justify-content-md-center">
+      <!-- <div class="mb-2">
+          <img src="/assets/icons/logo.png" class="img-fluid" width="75" alt="">
+        </div> -->
+      <div class="col-lg-4 col-12 col-md-6 fs-5 mb-3">
+        LOGIN
+      </div>
+    </div>
+    <div class="d-flex justify-content-md-center pb-4">
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card">
+            <div class="card-body">
+              <div class="row">
+                <div class="col-12">
+                  <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Usuário</mat-label>
+                    <input type="text" matInput required [(ngModel)]="username" name="username"
+                      [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="form?.controls?.['username']?.hasError('required')">
+                      Campo obrigatório
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+                <div class="col-lg-12">
+                  <mat-form-field class="w-100" appearance="fill">
+                    <mat-label>Senha</mat-label>
+                    <input type="password" matInput required [(ngModel)]="password" name="password"
+                      [errorStateMatcher]="matcher">
+                    <mat-error *ngIf="form?.controls?.['password']?.hasError('required')">
+                      Campo obrigatório
+                    </mat-error>
+                  </mat-form-field>
+                </div>
+              </div>
+              <div class="row justify-content-md-center">
+                <div class="col-lg-6">
+                  <button mat-raised-button color="primary" (click)="login()" class="w-100"
+                    type="button">CONFIRMAR</button>
+                </div>
+                <div class="col-lg-6">
+                  <button mat-raised-button (click)="login()" class="w-100 bg-secondary" type="button">AJUDA</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+</main>
