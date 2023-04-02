@@ -1,0 +1,14 @@
+:host .corpo-editor {
+    height: 100%;
+}
+
+:host .barra-ferrmentas {
+    min-width: 150px;
+    max-width: 25%;
+}
+
+:host .barra-components {
+    min-width: 150px;
+    max-width: 25%;
+}
+
