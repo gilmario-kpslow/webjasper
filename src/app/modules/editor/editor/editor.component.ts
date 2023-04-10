@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, Renderer2, ViewChild } from '@angular/core';
 import * as uuid from 'uuid';
+import { ReportCanvasComponent } from '../../components/report-canvas/report-canvas.component';
 import { ReportInstanceBuilder } from '../builder/report-instance-builder';
 
 @Component({
@@ -7,30 +8,39 @@ import { ReportInstanceBuilder } from '../builder/report-instance-builder';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent {
-  lista: string[] = [];
+export class EditorComponent implements AfterViewInit{
   relatorio = new ReportInstanceBuilder().getA4('relatorio');
+  nome = "Gilmario";
+  x = 50;
+  y = 50;
 
-  private canvas: HTMLCanvasElement;
-  private context: CanvasRenderingContext2D | null;
+  @ViewChild(ReportCanvasComponent) private reportCanvas: ReportCanvasComponent| undefined; 
 
   constructor() {
-    this.canvas = document.getElementById('canvas') as HTMLCanvasElement;
-    this.context = this.canvas.getContext("2d");  
+  }
+
+  ngAfterViewInit(): void {
+    this.reportCanvas?.setDimensoes(this.relatorio.pageWidth, this.relatorio.pageHeight);
+    this.draw();
   }
 
   initA4(): void {
     // Iniciar o canvas
+    this.draw();
   }
 
   draw() {
-    this.context?.strokeText("Gilmario", 50, 50);
+    this.reportCanvas?.context?.clearRect(0,0, this.relatorio.pageWidth, this.relatorio.pageHeight);
 
-    requestAnimationFrame(this.draw)
+    this.reportCanvas?.context?.strokeRect(0,0, this.relatorio.pageWidth, this.relatorio.pageHeight);
+
+    this.reportCanvas?.context?.strokeText(this.nome, this.x, this.y);
+
+    requestAnimationFrame(this.draw.bind(this));
   }
 
   teste() {
-    const a =  uuid.v4();
-    this.lista.push(a);
+    this.x += 50;
+    this.y += 50;
   }
 }

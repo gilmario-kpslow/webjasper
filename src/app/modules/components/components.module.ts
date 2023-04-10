@@ -7,11 +7,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
 import { MatProgressSpinnerModule } from '@angular/material/progress-spinner';
 import { NaoencontradoComponent } from './naoencontrado/naoencontrado.component';
+import { ReportCanvasComponent } from './report-canvas/report-canvas.component';
 
 @NgModule({
   declarations: [
     MensagensComponent,
-    NaoencontradoComponent
+    NaoencontradoComponent,
+    ReportCanvasComponent
   ],
   imports: [
     CommonModule,
@@ -21,7 +23,8 @@ import { NaoencontradoComponent } from './naoencontrado/naoencontrado.component'
     MatProgressSpinnerModule
   ],
   exports: [
-    NaoencontradoComponent
+    NaoencontradoComponent,
+    ReportCanvasComponent
   ]
 })
 export class ComponentsModule { }
