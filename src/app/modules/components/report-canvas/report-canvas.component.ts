@@ -12,7 +12,7 @@ export class ReportCanvasComponent implements AfterViewInit{
 
   @ViewChild("main") div: ElementRef| undefined
 
-  constructor(private renderer: Renderer2,private el: ElementRef) {
+  constructor(private renderer: Renderer2,public elementRef: ElementRef) {
     
   }
 

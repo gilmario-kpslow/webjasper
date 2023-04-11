@@ -6,8 +6,9 @@
         <div class="bg-success text-light barra-ferrmentas">
             <app-relatorio-inpector></app-relatorio-inpector>
         </div>
-        <div class="flex-fill bg-light p-2" (click)="teste()">
-            <app-report-canvas></app-report-canvas>
+        {{mousePos}}
+        <div class="flex-fill bg-light p-2">
+            <app-report-canvas #canvas></app-report-canvas>
         </div>
         <div class="bg-gradient bg-dark text-light barra-components">
             Componentes e atributos - laterial direita
