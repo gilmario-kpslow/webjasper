@@ -7,12 +7,16 @@ import { ComponentsModule } from '../components/components.module';
 import { RelatorioInpectorComponent } from './relatorio-inpector/relatorio-inpector.component';
 import {MatTreeModule} from '@angular/material/tree'; 
 import { MatIconModule } from '@angular/material/icon';
+import { P5exemploComponent } from './p5exemplo/p5exemplo.component';
+import { EditorhtmlComponent } from './editorhtml/editorhtml.component';
 
 
 @NgModule({
   declarations: [
     EditorComponent,
-    RelatorioInpectorComponent
+    RelatorioInpectorComponent,
+    P5exemploComponent,
+    EditorhtmlComponent
   ],
   imports: [
     CommonModule,
