@@ -1,5 +1,5 @@
 import { Selectable } from "../selectable/selectable";
-import { Drawable } from "./drawable";
+import { Drawable } from "../drawable/drawable";
 
 export class Square implements Drawable, Selectable{
     
@@ -33,7 +33,7 @@ export class Square implements Drawable, Selectable{
         return this.posicao;
     }
 
-    isSeleted(): boolean {
+    isSelecionado(): boolean {
         return this.selecionado;
     }
 

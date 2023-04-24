@@ -1,6 +1,6 @@
 export interface Selectable {
 
-    isSeleted(): boolean;
+    isSelecionado(): boolean;
 
     onSelect(): void;
 

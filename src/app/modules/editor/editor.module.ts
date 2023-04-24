@@ -9,6 +9,7 @@ import {MatTreeModule} from '@angular/material/tree';
 import { MatIconModule } from '@angular/material/icon';
 import { P5exemploComponent } from './p5exemplo/p5exemplo.component';
 import { EditorhtmlComponent } from './editorhtml/editorhtml.component';
+import { LateralDireitoComponent } from './lateral-direito/lateral-direito.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { EditorhtmlComponent } from './editorhtml/editorhtml.component';
     EditorComponent,
     RelatorioInpectorComponent,
     P5exemploComponent,
-    EditorhtmlComponent
+    EditorhtmlComponent,
+    LateralDireitoComponent
   ],
   imports: [
     CommonModule,

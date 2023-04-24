@@ -22,9 +22,6 @@ export class EditorComponent implements AfterViewInit{
   constructor() {
   }
 
-  
-  
-
   ngAfterViewInit(): void {
     this.reportCanvas?.setDimensoes(this.relatorio.pageWidth, this.relatorio.pageHeight);
     this.draw();
@@ -39,7 +36,6 @@ export class EditorComponent implements AfterViewInit{
     this.reportCanvas?.context?.clearRect(0,0, this.relatorio.pageWidth, this.relatorio.pageHeight);
 
     this.reportCanvas?.context?.strokeRect(0,0, this.relatorio.pageWidth, this.relatorio.pageHeight);
-
   
     this.reportCanvas?.context?.strokeText(this.nome, this.x, this.y);
 
@@ -57,6 +53,7 @@ export class EditorComponent implements AfterViewInit{
   @HostListener("mousedown")
   teste2() {
     this.mousePos = true;
+    // Procurar o 
   }
 
   @HostListener("mouseup")
