@@ -1,6 +1,7 @@
-<div>
+<div class="p-2">
     <h5>Components</h5>
     <div *ngFor="let c of components" (click)="seleciona(c)">
-        <i class="">{{c.icone}}</i> <span>{{c.nome}}</span>
+        <mat-icon>{{c.icone}}</mat-icon>
+        <!-- <i class="">{{c.icone}}</i> <span>{{c.nome}}</span> -->
     </div>
 </div>

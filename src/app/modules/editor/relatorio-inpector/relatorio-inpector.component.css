@@ -9,11 +9,15 @@
     list-style-type: none;
 }
 
+:host .example-tree li:hover {
+    background-color: aqua;
+}
+
 /*
    * This padding sets alignment of the nested nodes.
    */
 :host .example-tree .mat-nested-tree-node div[role=group] {
-    padding-left: 40px;
+    padding-left: 20px;
 }
 
 /*
@@ -22,5 +26,16 @@
    * under the same parent.
    */
 :host .example-tree div[role=group]>.mat-tree-node {
-    padding-left: 40px;
+    padding-left: 20px;
+}
+
+:host .mat-tree-node {
+    min-height: 25px !important;
+}
+
+:host .botao {
+    /* background-color: red; */
+    width: 24px;
+    height: 24px;
+    padding: 0px;
 }

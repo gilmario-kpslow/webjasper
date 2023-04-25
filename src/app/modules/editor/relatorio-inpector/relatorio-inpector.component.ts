@@ -1,35 +1,39 @@
 import { Component, Input } from '@angular/core';
 import { JasperReport } from '../classes/jasperreport';
 
-import {NestedTreeControl} from '@angular/cdk/tree';
-import {MatTreeNestedDataSource} from '@angular/material/tree';
+import { NestedTreeControl } from '@angular/cdk/tree';
+import { MatTreeNestedDataSource } from '@angular/material/tree';
 
-interface FoodNode {
+interface ArvoreItem {
   name: string;
-  children?: FoodNode[];
+  icone?: string;
+  children?: ArvoreItem[];
 }
 
-const TREE_DATA: FoodNode[] = [
+const TREE_DATA: ArvoreItem[] = [
   {
     name: 'Exemplo',
-    children: [{name: 'Styles'}, {name: 'Parameter', children: [
-      {name: "REPORT_CONTEXT"},
-      {name: "REPORT_CONTEXT"}
-    ]},
-    {name: 'Fields'},
-    {name: 'Sort Fields'},
-    {name: 'Variables'},
-    {name: 'Scriptlets'},
-    {name: 'Title'},
-    {name: 'Page Header'},
-    {name: 'Column Header'},
-    {name: 'Detail 1'},
-    {name: 'Column Footer'},
-    {name: 'Page Footer'},
-    {name: 'Last Page Footer'},
-    {name: 'Summary'},
-    {name: 'No Data'},
-    {name: 'Background'},
+
+    children: [{ name: 'Styles', icone: 'insert_drive_file' }, {
+      name: 'Parameter', children: [
+        { name: "REPORT_CONTEXT" },
+        { name: "REPORT_CONTEXT" }
+      ]
+    },
+    { name: 'Fields' },
+    { name: 'Sort Fields' },
+    { name: 'Variables' },
+    { name: 'Scriptlets' },
+    { name: 'Title' },
+    { name: 'Page Header' },
+    { name: 'Column Header' },
+    { name: 'Detail 1' },
+    { name: 'Column Footer' },
+    { name: 'Page Footer' },
+    { name: 'Last Page Footer' },
+    { name: 'Summary' },
+    { name: 'No Data' },
+    { name: 'Background' },
     ],
   },
 ];
@@ -41,12 +45,12 @@ const TREE_DATA: FoodNode[] = [
 })
 export class RelatorioInpectorComponent {
 
-  @Input() report: JasperReport| undefined;
+  @Input() report: JasperReport | undefined;
 
-  treeControl = new NestedTreeControl<FoodNode>(node => node.children);
-  dataSource = new MatTreeNestedDataSource<FoodNode>();
+  treeControl = new NestedTreeControl<ArvoreItem>(node => node.children);
+  dataSource = new MatTreeNestedDataSource<ArvoreItem>();
 
-  constructor(){
+  constructor() {
     this.dataSource.data = TREE_DATA;
   }
 
@@ -54,8 +58,8 @@ export class RelatorioInpectorComponent {
 
   }
 
-  
 
-  hasChild = (_: number, node: FoodNode) => !!node.children && node.children.length > 0;
+
+  hasChild = (_: number, node: ArvoreItem) => !!node.children && node.children.length > 0;
 
 }
