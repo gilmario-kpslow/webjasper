@@ -10,7 +10,7 @@ export class LateralDireitoComponent {
 
   @Output() selecionaEvent = new EventEmitter();
   components: Componente[] = [
-    { icone: 'text', nome: 'Static Text' },
+    { icone: 'hdr_off', nome: 'Static Text' },
     { icone: 'format_shapes', nome: 'Input Text' },
     { icone: 'imagem', nome: 'Imagem' },
   ];

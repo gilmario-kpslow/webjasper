@@ -8,22 +8,22 @@ import { ReportInstanceBuilder } from '../builder/report-instance-builder';
   templateUrl: './editor.component.html',
   styleUrls: ['./editor.component.css']
 })
-export class EditorComponent implements AfterViewInit{
+export class EditorComponent implements AfterViewInit {
   relatorio = new ReportInstanceBuilder().getA4('relatorio');
-  nome = "Gilmario";
+  nome = "\o/";
   x = 50;
   y = 50;
   mousePos = false;
 
   @ViewChild(ReportCanvasComponent) canvas: ReportCanvasComponent | undefined
 
-  @ViewChild(ReportCanvasComponent) private reportCanvas: ReportCanvasComponent| undefined; 
+  @ViewChild(ReportCanvasComponent) private reportCanvas: ReportCanvasComponent | undefined;
 
   constructor() {
   }
 
   ngAfterViewInit(): void {
-    this.reportCanvas?.setDimensoes(this.relatorio.pageWidth, this.relatorio.pageHeight);
+    this.reportCanvas?.setDimensoes();
     this.draw();
   }
 
@@ -33,10 +33,10 @@ export class EditorComponent implements AfterViewInit{
   }
 
   draw() {
-    this.reportCanvas?.context?.clearRect(0,0, this.relatorio.pageWidth, this.relatorio.pageHeight);
+    this.reportCanvas?.limpar();
 
-    this.reportCanvas?.context?.strokeRect(0,0, this.relatorio.pageWidth, this.relatorio.pageHeight);
-  
+    this.reportCanvas?.context?.strokeRect(0, 0, this.relatorio.pageWidth, this.relatorio.pageHeight);
+
     this.reportCanvas?.context?.strokeText(this.nome, this.x, this.y);
 
     requestAnimationFrame(this.draw.bind(this));
@@ -44,7 +44,7 @@ export class EditorComponent implements AfterViewInit{
 
   @HostListener("mousemove", ['$event'])
   teste(event: any) {
-    if(this.mousePos) {
+    if (this.mousePos) {
       this.x = event.clientX - this.canvas?.elementRef.nativeElement.offsetLeft;
       this.y = event.clientY - this.canvas?.elementRef.nativeElement.offsetTop;
     }

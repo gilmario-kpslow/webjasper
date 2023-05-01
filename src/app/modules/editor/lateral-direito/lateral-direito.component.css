@@ -1,0 +1,10 @@
+div>div {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+div>div>span {
+    margin-left: 3px;
+    font-size: small;
+}

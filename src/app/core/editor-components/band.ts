@@ -1,48 +1,18 @@
+import { last } from "rxjs";
+import { SplitType } from "src/app/modules/editor/classes/split-type";
 import { Drawable } from "../drawable/drawable";
 import { Selectable } from "../selectable/selectable";
+import { DrawImplement } from "./draw-implement";
 
-export class Band implements Drawable, Selectable {
+export class Band extends DrawImplement {
 
-    constructor(public largura: number, public altura: number, public x: number, public y: number, public posicao: number, public selecionado: boolean) {
+    constructor(largura: number, altura: number, y: number, posicao: number, selecionado: boolean, public splitType: SplitType = SplitType.STRETCH) {
+        super(largura, altura, 0, y, posicao, selecionado);
     }
 
-    draw(context: any): void {
-        if (this.selecionado) {
-
-        } else {
-
-        }
+    draw(context: CanvasRenderingContext2D): void {
+        context.strokeRect(this.x, this.y, this.largura, this.altura);
     }
 
-    getChildren(): Drawable[] {
-        return [];
-    }
 
-    getY(): number {
-        return this.y;
-    }
-
-    getX(): number {
-        return this.x;
-    }
-
-    getHeigth(): number {
-        return this.altura;
-    }
-
-    getWidth(): number {
-        return this.largura;
-    }
-
-    getPos(): number {
-        return this.posicao;
-    }
-
-    isSelecionado(): boolean {
-        return this.selecionado;
-    }
-
-    onSelect(): void {
-        console.log('Selecionado')
-    }
 }
