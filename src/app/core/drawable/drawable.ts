@@ -1,6 +1,6 @@
 export interface Drawable {
 
-    draw(context: CanvasRenderingContext2D): void;
+    draw(context: CanvasRenderingContext2D, x: number, y: number): void;
 
     getChildren(): Drawable[];
 

@@ -1,4 +1,5 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
+import { BACKGROUND_COLOR_2, BACKGROUND_COLOR_1 } from 'src/app/core/constantes/styles';
 
 @Component({
   selector: 'app-report-canvas',
@@ -9,6 +10,8 @@ export class ReportCanvasComponent implements AfterViewInit {
 
   canvas: HTMLCanvasElement | undefined;
   context: CanvasRenderingContext2D | null | undefined;
+  largura: number = 0;
+  altura: number = 0;
 
   @ViewChild("main") div: ElementRef | undefined
 
@@ -29,15 +32,41 @@ export class ReportCanvasComponent implements AfterViewInit {
   }
 
   setDimensoes() {
-    this.renderer.setAttribute(this.canvas, 'width', `${window.screen.width}`);
-    this.renderer.setAttribute(this.canvas, 'height', `${window.screen.height}`);
+    this.largura = window.screen.width
+    this.altura = window.screen.height
+    this.renderer.setAttribute(this.canvas, 'width', `${this.largura}`);
+    this.renderer.setAttribute(this.canvas, 'height', `${this.altura}`);
   }
 
   limpar() {
-    this.context?.clearRect(0, 0, window.screen.width, window.screen.height);
-    if (this.context) {
-      this.context.fillStyle = "rgba(0,0,0,0.5)";
+    if (!this.context) {
+      return;
     }
-    this.context?.fillRect(0, 0, window.screen.width, window.screen.height);
+    this.context.clearRect(0, 0, this.largura, this.altura);
+    this.desenhaFundo();
+
+  }
+
+  private desenhaFundo() {
+    if (!this.context) {
+      return;
+    }
+    const partes = 100
+    const q = this.largura / partes;
+    let x = 0;
+    let y = 0;
+    for (let i = 0; i < partes; i++) {
+      for (let j = 0; j < partes; j++) {
+        if ((i + j) % 2 == 0) {
+          this.context.fillStyle = BACKGROUND_COLOR_1;
+        } else {
+          this.context.fillStyle = BACKGROUND_COLOR_2;
+        }
+        this.context?.fillRect(x, y, q, q);
+        x += q;
+      }
+      y += q;
+      x = 0;
+    }
   }
 }

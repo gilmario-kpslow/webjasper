@@ -1,5 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Renderer2, ViewChild } from '@angular/core';
-import * as uuid from 'uuid';
+import { AfterViewInit, Component, HostListener, ViewChild } from '@angular/core';
 import { ReportCanvasComponent } from '../../components/report-canvas/report-canvas.component';
 import { ReportInstanceBuilder } from '../builder/report-instance-builder';
 
@@ -24,31 +23,42 @@ export class EditorComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.reportCanvas?.setDimensoes();
+    this.centraliza();
     this.draw();
   }
 
+  centraliza() {
+    if (!this.reportCanvas || !this.reportCanvas.context) {
+      return;
+    }
+    this.x = (this.reportCanvas.largura - this.relatorio.pageWidth) / 2;
+
+  }
+
   initA4(): void {
-    // Iniciar o canvas
     this.draw();
   }
 
   draw() {
-    this.reportCanvas?.limpar();
+    if (!this.reportCanvas || !this.reportCanvas.context) {
+      return;
+    }
+    this.reportCanvas.limpar();
 
-    this.reportCanvas?.context?.strokeRect(0, 0, this.relatorio.pageWidth, this.relatorio.pageHeight);
-
-    this.reportCanvas?.context?.strokeText(this.nome, this.x, this.y);
+    this.relatorio.x = this.x;
+    this.relatorio.y = this.y;
+    this.relatorio.processa(this.reportCanvas.context);
 
     requestAnimationFrame(this.draw.bind(this));
   }
 
-  @HostListener("mousemove", ['$event'])
-  teste(event: any) {
-    if (this.mousePos) {
-      this.x = event.clientX - this.canvas?.elementRef.nativeElement.offsetLeft;
-      this.y = event.clientY - this.canvas?.elementRef.nativeElement.offsetTop;
-    }
-  }
+  // @HostListener("mousemove", ['$event'])
+  // teste(event: any) {
+  //   if (this.mousePos) {
+  //     this.x = event.clientX - this.canvas?.elementRef.nativeElement.offsetLeft;
+  //     this.y = event.clientY - this.canvas?.elementRef.nativeElement.offsetTop;
+  //   }
+  // }
 
   @HostListener("mousedown")
   teste2() {
