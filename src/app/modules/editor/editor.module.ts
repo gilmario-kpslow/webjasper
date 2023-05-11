@@ -11,6 +11,7 @@ import { P5exemploComponent } from './p5exemplo/p5exemplo.component';
 import { EditorhtmlComponent } from './editorhtml/editorhtml.component';
 import { LateralDireitoComponent } from './lateral-direito/lateral-direito.component';
 import { MatButtonModule } from '@angular/material/button';
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -27,6 +28,7 @@ import { MatButtonModule } from '@angular/material/button';
     ComponentsModule,
     MatTreeModule,
     MatIconModule,
+    FormsModule,
     MatButtonModule
 
   ]

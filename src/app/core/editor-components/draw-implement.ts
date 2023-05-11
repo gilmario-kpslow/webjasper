@@ -8,8 +8,10 @@ export abstract class DrawImplement implements Drawable, Selectable {
 
     abstract draw(context: CanvasRenderingContext2D, x: number, y: number): void;
 
-    processa(context: CanvasRenderingContext2D) {
+    processa(context: CanvasRenderingContext2D, scale: number, translateX: number, translateY: number) {
         context.save();
+        context.translate(translateX, translateY);
+        context.scale(scale, scale);
         this.draw(context, this.getX(), this.getY());
         context.restore();
         this.getChildren().forEach(a => a.draw(context, this.getX(), this.getY()));

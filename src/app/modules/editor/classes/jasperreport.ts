@@ -1,4 +1,4 @@
-import { LINE_MARGIN } from "src/app/core/constantes/styles";
+import { COR_SOMBRA, LINE_MARGIN } from "src/app/core/constantes/styles";
 import { Band } from "src/app/core/editor-components/band";
 import { DrawImplement } from "src/app/core/editor-components/draw-implement";
 import { QueryString } from "./query-string";
@@ -31,6 +31,10 @@ export class JasperReport extends DrawImplement {
 
     draw(context: CanvasRenderingContext2D, x: number, y: number): void {
         context.fillStyle = "#FFFFFF"
+        context.shadowBlur = 10;
+        context.shadowOffsetX = 0;
+        context.shadowOffsetY = 5;
+        context.shadowColor = COR_SOMBRA;
         context.fillRect(x, y, this.pageWidth, this.pageHeight);
         context.lineWidth = 0.8;
         // context.lineJoinTo(x, y + this.topMargin);
@@ -45,6 +49,13 @@ export class JasperReport extends DrawImplement {
         context.lineTo(x + this.pageWidth, this.y + this.pageHeight - this.topMargin)
         context.moveTo(x + this.pageWidth - this.leftMargin, y + this.pageHeight);
         context.lineTo(x + this.pageWidth - this.leftMargin, y);
+        context.stroke();
+        context.closePath();
+        context.beginPath();
+        context.moveTo(this.x + (this.pageWidth) / 2, this.y);
+        context.lineTo(this.x + (this.pageWidth) / 2, this.pageHeight + this.y);
+        context.moveTo(this.x, this.y + (this.pageHeight) / 2);
+        context.lineTo(this.pageWidth + this.x, this.y + (this.pageHeight) / 2);
         context.stroke();
         context.closePath();
 

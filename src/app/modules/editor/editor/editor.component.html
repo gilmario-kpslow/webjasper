@@ -5,6 +5,11 @@
     <section class="corpo-editor d-flex bg-info">
         <div class="bg-success text-light barra-ferrmentas">
             <app-relatorio-inpector></app-relatorio-inpector>
+            <div>
+                <button type="button" (click)="maisZoom()" style="z-index: 99;">Zoom +</button>
+                <button type="button" (click)="menosZoom()" style="z-index: 99;">Zoom -</button>
+                <button type="button" (click)="zeroZoom()" style="z-index: 99;">100%</button>
+            </div>
         </div>
         <div class="flex-fill bg-light p-2 ">
             <app-report-canvas #canvas></app-report-canvas>

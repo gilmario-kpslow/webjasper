@@ -22,6 +22,7 @@ export class ReportCanvasComponent implements AfterViewInit {
   @HostListener("resize", ['$event'])
   onRezise(event: any) {
     console.log(event);
+    alert('resize');
   }
 
   ngAfterViewInit(): void {
@@ -32,8 +33,8 @@ export class ReportCanvasComponent implements AfterViewInit {
   }
 
   setDimensoes() {
-    this.largura = window.screen.width
-    this.altura = window.screen.height
+    this.largura = document.body.clientWidth;
+    this.altura = document.body.clientHeight
     this.renderer.setAttribute(this.canvas, 'width', `${this.largura}`);
     this.renderer.setAttribute(this.canvas, 'height', `${this.altura}`);
   }
@@ -43,7 +44,14 @@ export class ReportCanvasComponent implements AfterViewInit {
       return;
     }
     this.context.clearRect(0, 0, this.largura, this.altura);
-    this.desenhaFundo();
+    this.context.beginPath();
+    this.context.moveTo(this.largura / 2, 0);
+    this.context.lineTo(this.largura / 2, this.altura);
+    this.context.moveTo(0, this.altura / 2);
+    this.context.lineTo(this.largura, this.altura / 2);
+    this.context.stroke();
+    this.context.closePath();
+    // this.desenhaFundo();
 
   }
 
@@ -69,4 +77,18 @@ export class ReportCanvasComponent implements AfterViewInit {
       x = 0;
     }
   }
+
+  zoomIn() {
+    this.context?.scale(1.1, 1.1);
+  }
+
+  zoomOut() {
+
+    this.context?.scale(0.9, 0.9);
+  }
+
+  resetZoom() {
+    this.context?.resetTransform();
+  }
+
 }
