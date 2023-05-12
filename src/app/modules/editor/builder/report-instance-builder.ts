@@ -14,14 +14,14 @@ export class ReportInstanceBuilder {
 
         return new JasperReport(name, papel.largura, papel.altura, (papel.largura - papel.margem), papel.margem, papel.margem, papel.margem, papel.margem, uuid.v4(),
             new QueryString(),
-            new Band(papel.largura, 50, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 79, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 35, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 61, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 125, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 45, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 54, 1, false, SplitType.STRETCH),
-            new Band(papel.largura, 42, 1, false, SplitType.STRETCH),
+            new Band(papel.largura, papel.altura, 1, false, SplitType.STRETCH, 'BACKGROUD'),
+            new Band(papel.largura, 80, 1, false, SplitType.STRETCH, 'TITULO'),
+            new Band(papel.largura, 30, 1, false, SplitType.STRETCH, 'CABEÇALHO DA PÁGINA'),
+            new Band(papel.largura, 30, 1, false, SplitType.STRETCH, 'CABEÇALHO DAS COLUNAS'),
+            new Band(papel.largura, 125, 1, false, SplitType.STRETCH, 'DETALHES'),
+            new Band(papel.largura, 30, 1, false, SplitType.STRETCH, 'RODAPE DAS COLUNAS'),
+            new Band(papel.largura, 20, 1, false, SplitType.STRETCH, 'RODAPÉ DA PÁGINA'),
+            new Band(papel.largura, 30, 1, false, SplitType.STRETCH, 'SUMÁRIO'),
         )
     }
 }

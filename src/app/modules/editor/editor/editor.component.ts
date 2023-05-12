@@ -61,8 +61,6 @@ export class EditorComponent implements AfterViewInit {
       return;
     }
     this.reportCanvas.limpar();
-
-
     this.relatorio.x = this.x;
     this.relatorio.y = this.y;
     this.relatorio.processa(this.reportCanvas.context, this.scale, this.translateX, this.translateY);
@@ -71,9 +69,11 @@ export class EditorComponent implements AfterViewInit {
 
   @HostListener("mousedown", ['$event'])
   mouseDown(event: any) {
-    this.mousePressed = true;
-    this.baseX = event.clientX;
-    this.baseY = event.clientY;
+    if (event.button === 1) {
+      this.mousePressed = true;
+      this.baseX = event.clientX;
+      this.baseY = event.clientY;
+    }
   }
 
   @HostListener("mouseup", ['$event'])

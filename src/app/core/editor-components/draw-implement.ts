@@ -13,8 +13,8 @@ export abstract class DrawImplement implements Drawable, Selectable {
         context.translate(translateX, translateY);
         context.scale(scale, scale);
         this.draw(context, this.getX(), this.getY());
-        context.restore();
         this.getChildren().forEach(a => a.draw(context, this.getX(), this.getY()));
+        context.restore();
     }
 
     getChildren(): Drawable[] {
