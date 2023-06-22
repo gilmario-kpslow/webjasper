@@ -12,5 +12,5 @@ export interface Drawable {
 
     getX(): number;
 
-    getPos(): number;
+    getLayer(): number;
 }

@@ -1,0 +1,26 @@
+:host {
+    position: relative;
+    z-index: 99999;
+    display: flex;
+    justify-content: center;    
+    align-content: center;
+}
+:host .content {
+    background: rgba(133, 176, 219, 0.75);
+    display: flex;
+    align-items: center;
+    padding: 7px;
+    border-radius: 5px;
+}
+
+:host .content .mat-icon {
+    margin-left: 10px;
+    margin-right: 10px;
+    cursor: pointer;
+    
+}
+
+:host .content .mat-icon:hover {
+    border: 1px solid  rgba(133, 176, 219, 1);
+    
+}

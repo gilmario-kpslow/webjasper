@@ -37,7 +37,7 @@ export class JasperReport extends DrawImplement {
         context.shadowColor = COR_SOMBRA;
         context.fillRect(x, y, this.pageWidth, this.pageHeight);
         this.drawMargin(context, x, y);
-        this.drawCenterLines(context, x, y);
+        // this.drawCenterLines(context, x, y);
         // Desenhar as bands
         this.desenhaBands(context, x, y);
     }

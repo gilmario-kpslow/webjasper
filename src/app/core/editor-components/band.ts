@@ -4,8 +4,10 @@ import { DrawImplement } from "./draw-implement";
 
 export class Band extends DrawImplement {
 
-    constructor(largura: number, altura: number, posicao: number, selecionado: boolean, public splitType: SplitType = SplitType.STRETCH, public titulo: string) {
-        super(largura, altura, posicao, selecionado);
+    filhos: DrawImplement[] = [];
+
+    constructor(largura: number, altura: number, layer: number, selecionado: boolean, public splitType: SplitType = SplitType.STRETCH, public titulo: string) {
+        super(largura, altura, layer, selecionado);
     }
 
     draw(context: CanvasRenderingContext2D, x: number, y: number): void {
@@ -21,8 +23,6 @@ export class Band extends DrawImplement {
         context.stroke();
         context.closePath();
 
-
-
         context.fillStyle = TEXTO_BACKGROUD;
         context.shadowBlur = 10;
         context.shadowOffsetX = 0;
@@ -33,6 +33,13 @@ export class Band extends DrawImplement {
         context.textBaseline = 'middle'
         context.fillText(this.titulo + " - " + this.altura, x + (this.largura / 2), y + (this.altura / 2) + 2);
         context.restore();
+
+        
+
+        this.filhos.forEach(f => {
+
+            f.draw(context, x, y);
+        })
     }
 
 

@@ -69,10 +69,14 @@ export class EditorComponent implements AfterViewInit {
 
   @HostListener("mousedown", ['$event'])
   mouseDown(event: any) {
-    if (event.button === 1) {
-      this.mousePressed = true;
+    if (event.button === 0) {
       this.baseX = event.clientX;
       this.baseY = event.clientY;
+      if(this.baseX >= this.relatorio.x && this.baseX <= this.relatorio.x + this.relatorio.largura && 
+        this.baseY >= this.relatorio.y && this.baseY <= this.relatorio.y + this.relatorio.altura) {
+          this.mousePressed = true;
+          this.relatorio.seleciona(this.baseX, this.baseY);
+      }
     }
   }
 

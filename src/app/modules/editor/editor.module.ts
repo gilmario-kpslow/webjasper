@@ -12,6 +12,7 @@ import { EditorhtmlComponent } from './editorhtml/editorhtml.component';
 import { LateralDireitoComponent } from './lateral-direito/lateral-direito.component';
 import { MatButtonModule } from '@angular/material/button';
 import { FormsModule } from '@angular/forms';
+import { ZoomToobarComponent } from './zoom-toobar/zoom-toobar.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
     RelatorioInpectorComponent,
     P5exemploComponent,
     EditorhtmlComponent,
-    LateralDireitoComponent
+    LateralDireitoComponent,
+    ZoomToobarComponent
   ],
   imports: [
     CommonModule,

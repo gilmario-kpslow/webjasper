@@ -1,9 +1,9 @@
 import { Selectable } from "../selectable/selectable";
 import { Drawable } from "../drawable/drawable";
 
-export abstract class DrawImplement implements Drawable, Selectable {
+export abstract class DrawImplement implements Drawable {
 
-    constructor(public largura: number, public altura: number, public posicao: number, public selecionado: boolean, public x = 0, public y = 0) {
+    constructor(public largura: number, public altura: number, public layer: number, public selecionado: boolean, public x = 0, public y = 0) {
     }
 
     abstract draw(context: CanvasRenderingContext2D, x: number, y: number): void;
@@ -37,8 +37,8 @@ export abstract class DrawImplement implements Drawable, Selectable {
         return this.largura;
     }
 
-    getPos(): number {
-        return this.posicao;
+    getLayer(): number {
+        return this.layer;
     }
 
     isSelecionado(): boolean {
@@ -47,5 +47,14 @@ export abstract class DrawImplement implements Drawable, Selectable {
 
     onSelect(): void {
         console.log('Selecionado')
+    }
+
+    seleciona(x: number, y: number) {
+        if(x >= this.x && x <= this.x + this.largura && 
+            this.y >= this.y && this.y <= this.relatorio.y + this.relatorio.altura) {
+              this.mousePressed = true;
+              this.relatorio.seleciona(this.baseX, this.baseY);
+          }
+        this.onSelect();
     }
 }
