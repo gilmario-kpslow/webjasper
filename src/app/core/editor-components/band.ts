@@ -33,13 +33,7 @@ export class Band extends DrawImplement {
         context.textBaseline = 'middle'
         context.fillText(this.titulo + " - " + this.altura, x + (this.largura / 2), y + (this.altura / 2) + 2);
         context.restore();
-
         
-
-        this.filhos.forEach(f => {
-
-            f.draw(context, x, y);
-        })
     }
 
 

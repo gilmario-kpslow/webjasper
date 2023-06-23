@@ -51,9 +51,9 @@ export abstract class DrawImplement implements Drawable {
 
     seleciona(x: number, y: number) {
         if(x >= this.x && x <= this.x + this.largura && 
-            this.y >= this.y && this.y <= this.relatorio.y + this.relatorio.altura) {
-              this.mousePressed = true;
-              this.relatorio.seleciona(this.baseX, this.baseY);
+            this.y >= this.y && this.y <= this.y + this.altura) {
+              this.selecionado = true;
+              this.getChildren().forEach(c => c.seleciona(this.x, this.y));
           }
         this.onSelect();
     }

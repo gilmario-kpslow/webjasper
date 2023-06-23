@@ -13,4 +13,6 @@ export interface Drawable {
     getX(): number;
 
     getLayer(): number;
+
+    seleciona(x: number, y: number): void;
 }

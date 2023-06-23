@@ -8,7 +8,7 @@ import { ReportInstanceBuilder } from '../builder/report-instance-builder';
   styleUrls: ['./editor.component.css']
 })
 export class EditorComponent implements AfterViewInit {
-  relatorio = new ReportInstanceBuilder().getA4('relatorio');
+  relatorio = new ReportInstanceBuilder().getA3('relatorio');
   nome = "\o/";
   x = 0;
   y = 0;
